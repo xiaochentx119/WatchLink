@@ -1,5 +1,11 @@
 # WatchLink · 手机 ↔ 手表 实时互联
 
+[![Build](https://github.com/xiaochentx119/WatchLink/actions/workflows/build.yml/badge.svg)](https://github.com/xiaochentx119/WatchLink/actions/workflows/build.yml)
+[![Release](https://img.shields.io/github/v/release/xiaochentx119/WatchLink)](https://github.com/xiaochentx119/WatchLink/releases)
+
+> **想直接装？** 到 [Releases](https://github.com/xiaochentx119/WatchLink/releases) 下载最新的
+> `WatchLink-phone-v*.apk`（手机）和 `WatchLink-wear-v*.apk`（手表）即可。
+
 两个原生 App，一套局域网协议：
 
 | App | 包名 | 作用 |
