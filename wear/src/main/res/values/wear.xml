@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 手机端通过这个能力名找到本手表 App -->
+    <string-array name="android_wear_capabilities">
+        <item>watchlink_watch</item>
+    </string-array>
+</resources>

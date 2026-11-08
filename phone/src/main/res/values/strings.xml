@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WatchLink</string>
+    <string name="notification_listener_label">WatchLink 通知读取</string>
+</resources>
