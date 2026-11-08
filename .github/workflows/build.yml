@@ -22,11 +22,19 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Install SDK packages
+        run: |
+          yes | sdkmanager --licenses > /dev/null || true
+          sdkmanager "platforms;android-36" "build-tools;35.0.0" "platform-tools"
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
       # 仓库里的 wrapper 默认指向腾讯云镜像（本机在国内用），CI 在海外，切回官方源
       - name: Use official Gradle distribution
         run: |
           sed -i 's#https://mirrors.cloud.tencent.com/gradle/#https://services.gradle.org/distributions/#' gradle/wrapper/gradle-wrapper.properties
-          cat gradle/wrapper/gradle-wrapper.properties | grep distributionUrl
+          grep distributionUrl gradle/wrapper/gradle-wrapper.properties
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4

@@ -25,6 +25,14 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Install SDK packages
+        run: |
+          yes | sdkmanager --licenses > /dev/null || true
+          sdkmanager "platforms;android-36" "build-tools;35.0.0" "platform-tools"
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
       - name: Use official Gradle distribution
         run: sed -i 's#https://mirrors.cloud.tencent.com/gradle/#https://services.gradle.org/distributions/#' gradle/wrapper/gradle-wrapper.properties
 
@@ -63,8 +71,8 @@ jobs:
 
             **手表端**（OPPO Watch X2 / Android 11，466×466）
             - 手表开发者选项打开 ADB 调试，连接同一 WiFi
-            - `adb connect <手表IP>:5555`
-            - `adb install -r WatchLink-wear-${{ github.ref_name }}.apk`
+            - 执行 `adb connect <手表IP>:5555`
+            - 执行 `adb install -r WatchLink-wear-${{ github.ref_name }}.apk`
 
             ## 说明
             - 两端必须连同一个 WiFi（走局域网 TCP + UDP 发现，不依赖 Google 服务）
